@@ -14,29 +14,40 @@
   </head>
   <body>
     <script>
+      //instanciando a situação desejada.
       let curso = new Curso ( 'Engenharia da Computação', 3630 );
       let uni = new Universidade ( 'Universidade Federal de Ouro Preto', curso);
       let orfanato = new Republica ( 'República Orfanato', 10, 5 );
-
+      let cerveja = new Bebida ( 'Cerveja', 4.5 );
+      let refrigerante = new Bebida ( 'Coca-Cola', 3.0);
+      let pedidos = new Pedido ();
+      pedidos.cardapio.push( cerveja );
+      pedidos.cardapio.push( refrigerante );
+      
       let pedro = new Pessoa ( 'Pedro', 20 );
       let ana = new Pessoa ( 'Ana', 17 );
       let paulo = new Pessoa ( 'Paulo', 23 );
       let armando = new Pessoa ( 'Armando', 17 );
       let andre = new Garcom ( 'André', undefined);
-
+      //atribuindo os valores de universidade e república para as pessoas.
       pedro.uni.push( uni );
       ana.uni.push( uni );
       paulo.rep.push( orfanato );
       armando.rep.push( orfanato );
-
-      console.log(paulo);
-      console.log(armando);
-      console.log(pedro);
-      console.log(ana);
-      console.log(andre);
-
-      andre.checarIDs(paulo);
-
+      //garçom andre checando as IDs de ana e armando.
+      andre.checarIDs(ana);
+      andre.checarIDs(armando);
+      //as pessoas fazendo seus modestos pedidos.
+      pedidos.pedir( cerveja, 2 );
+      pedidos.pedir( refrigerante, 2 );
+      //condição que verifica se a pessoa que pede a conta não é um garçom.
+      //com uma leve exceção.
+      if (ana.pedirConta () ) {
+        console.log(pedidos.calcularTotal());
+        console.log(pedidos.calcularIndividual());
+      }else {
+        console.log('Estou de folga e não posso beber no bar onde trabalho?!');
+      }
     </script>
   </body>
 </html>

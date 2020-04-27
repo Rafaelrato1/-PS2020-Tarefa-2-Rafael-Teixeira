@@ -12,6 +12,13 @@ class Pessoa {
     return this.nome;
   }
   
+  pedirConta () {
+    if (!this.bar){
+      return true;
+    }else{
+      return false;
+    }
+  }
 }
 
 class Garcom extends Pessoa {
