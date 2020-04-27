@@ -1,0 +1,6 @@
+class Pedido {
+  
+  constructor () {
+
+  }
+}
